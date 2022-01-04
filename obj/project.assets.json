@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vicre\\Documents\\Development\\Learning\\DotNet\\CursoCSharp\\CursoCSharp.csproj",
-      "projectName": "CursoCSharp",
-      "projectPath": "C:\\Users\\vicre\\Documents\\Development\\Learning\\DotNet\\CursoCSharp\\CursoCSharp.csproj",
+      "projectUniqueName": "C:\\Users\\vicre\\Documents\\Development\\Learning\\DotNet\\CursoCSharp\\CoreEscuela.csproj",
+      "projectName": "CoreEscuela",
+      "projectPath": "C:\\Users\\vicre\\Documents\\Development\\Learning\\DotNet\\CursoCSharp\\CoreEscuela.csproj",
       "packagesPath": "C:\\Users\\vicre\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\vicre\\Documents\\Development\\Learning\\DotNet\\CursoCSharp\\obj\\",
       "projectStyle": "PackageReference",

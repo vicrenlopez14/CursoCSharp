@@ -1,0 +1,15 @@
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\bin\x64\Debug\net6.0\CursoCSharp.exe
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\bin\x64\Debug\net6.0\CursoCSharp.deps.json
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\bin\x64\Debug\net6.0\CursoCSharp.runtimeconfig.json
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\bin\x64\Debug\net6.0\CursoCSharp.dll
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\bin\x64\Debug\net6.0\ref\CursoCSharp.dll
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\bin\x64\Debug\net6.0\CursoCSharp.pdb
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.csproj.AssemblyReference.cache
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.AssemblyInfoInputs.cache
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.AssemblyInfo.cs
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.csproj.CoreCompileInputs.cache
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.dll
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\ref\CursoCSharp.dll
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.pdb
+C:\Users\vicre\Documents\Development\Learning\DotNet\CursoCSharp\obj\x64\Debug\net6.0\CursoCSharp.genruntimeconfig.cache

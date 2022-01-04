@@ -1,20 +1,15 @@
-using System;
-
-namespace CoreEscuela.Entidades
+﻿namespace CoreEscuela.Entidades
 {
     public class ObjetoEscuelaBase
     {
-        public string UniqueId { get; private set; }
-        public string Nombre { get; set; }
+        public string UniqueId { get; set; };
+
+        public string Name { get; set; }
 
         public ObjetoEscuelaBase()
         {
-            UniqueId = Guid.NewGuid().ToString();
+            UniqueId = new Guid().ToString();
         }
 
-        public override string ToString()
-        {
-            return $"{Nombre},{UniqueId}";
-        }
     }
 }
