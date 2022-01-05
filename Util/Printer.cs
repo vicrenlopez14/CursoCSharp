@@ -4,7 +4,7 @@ namespace CoreEscuela.Util
 {
     public static class Printer
     {
-        public static void DibujarLinea(int tam = 10)
+        public static void DrawLine(int tam = 10)
         {
             WriteLine("".PadLeft(tam, '='));
         }
@@ -12,16 +12,18 @@ namespace CoreEscuela.Util
         public static void WriteTitle(string titulo)
         {
             var tamaño =titulo.Length + 4;
-            DibujarLinea(tamaño);
+            DrawLine(tamaño);
             WriteLine($"| {titulo} |");
-            DibujarLinea(tamaño);
+            DrawLine(tamaño);
         }
 
-        public static void Beep(int hz = 2000, int tiempo=500, int cantidad =1)
+        public static void BeepNow(int hz = 2000, int tiempo=500, int cantidad =1)
         {
             while (cantidad-- > 0)
             {
-                System.Console.Beep(hz, tiempo);
+#pragma warning disable CA1416 // Validate platform compatibility
+                Beep(hz, tiempo);
+#pragma warning restore CA1416 // Validate platform compatibility
             }
         }
     }

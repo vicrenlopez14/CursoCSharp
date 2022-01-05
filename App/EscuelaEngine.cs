@@ -1,22 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using CoreEscuela.Entidades;
 
 namespace CoreEscuela
 {
-    public class EscuelaEngine
+    public sealed class EscuelaEngine
     {
         public Escuela Escuela { get; set; }
 
-        public EscuelaEngine()
-        {
-
-        }
 
         public void Inicializar()
         {
-            Escuela = new Escuela("Platzi Academay", 2012, TiposEscuela.Primaria,
+            Escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.Primaria,
             ciudad: "Bogotá", pais: "Colombia"
             );
 
@@ -26,6 +19,77 @@ namespace CoreEscuela
 
         }
 
+        #region Métodos de generación
+
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            out int conteoEvaluaciones,
+            out int conteoCursos,
+            out int conteoAsignaturas,
+            out int conteoAlumnos,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true
+            )
+        {
+
+            conteoEvaluaciones = conteoCursos = conteoAsignaturas = conteoAlumnos = 0;
+            var listaObj = new List<ObjetoEscuelaBase>();
+            listaObj.Add(Escuela);
+            listaObj.AddRange(Escuela.Cursos);
+
+            if (traeCursos)
+            {
+
+                conteoCursos = Escuela.Cursos.Count;
+                foreach (var curso in Escuela.Cursos)
+                {
+                    conteoCursos += curso.Asignaturas.Count;
+                    conteoAlumnos = curso.Alumnos.Count;
+                    if (traeAsignaturas)
+                    {
+                        listaObj.AddRange(curso.Asignaturas);
+                    }
+
+                    if (traeAlumnos)
+                    {
+                        listaObj.AddRange(curso.Alumnos);
+                    }
+
+                    if (traeEvaluaciones)
+                    {
+                        foreach (var alumno in curso.Alumnos)
+                        {
+                            conteoEvaluaciones = alumno.Evaluaciones.Count;
+                            listaObj.AddRange(alumno.Evaluaciones);
+                        }
+                    }
+
+                }
+
+            }
+
+            return listaObj;
+        }
+
+
+        private List<Alumno> GenerarAlumnosAlAzar(int cantidad)
+        {
+            string[] nombre1 = { "Alba", "Felipa", "Eusebio", "Farid", "Donald", "Alvaro", "Nicolás" };
+            string[] apellido1 = { "Ruiz", "Sarmiento", "Uribe", "Maduro", "Trump", "Toledo", "Herrera" };
+            string[] nombre2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
+
+            var listaAlumnos = from n1 in nombre1
+                               from n2 in nombre2
+                               from a1 in apellido1
+                               select new Alumno { Nombre = $"{n1} {n2} {a1}" };
+
+            return listaAlumnos.OrderBy((al) => al.UniqueId).Take(cantidad).ToList();
+        }
+
+        #endregion
+
+        #region
         private void CargarEvaluaciones()
         {
 
@@ -68,20 +132,6 @@ namespace CoreEscuela
             }
         }
 
-        private List<Alumno> GenerarAlumnosAlAzar(int cantidad)
-        {
-            string[] nombre1 = { "Alba", "Felipa", "Eusebio", "Farid", "Donald", "Alvaro", "Nicolás" };
-            string[] apellido1 = { "Ruiz", "Sarmiento", "Uribe", "Maduro", "Trump", "Toledo", "Herrera" };
-            string[] nombre2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
-
-            var listaAlumnos = from n1 in nombre1
-                               from n2 in nombre2
-                               from a1 in apellido1
-                               select new Alumno { Nombre = $"{n1} {n2} {a1}" };
-
-            return listaAlumnos.OrderBy((al) => al.UniqueId).Take(cantidad).ToList();
-        }
-
         private void CargarCursos()
         {
             Escuela.Cursos = new List<Curso>(){
@@ -99,5 +149,7 @@ namespace CoreEscuela
                 c.Alumnos = GenerarAlumnosAlAzar(cantRandom);
             }
         }
+
+        #endregion Métodos de carga Métodos de carga
     }
 }

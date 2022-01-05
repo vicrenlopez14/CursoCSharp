@@ -1,14 +1,19 @@
 ﻿namespace CoreEscuela.Entidades
 {
-    public class ObjetoEscuelaBase
+    public abstract class ObjetoEscuelaBase
     {
-        public string UniqueId { get; set; };
+        public string UniqueId { get; private set; }
 
-        public string Name { get; set; }
+        public string? Nombre { get; set; }
 
         public ObjetoEscuelaBase()
         {
-            UniqueId = new Guid().ToString();
+            UniqueId = Guid.NewGuid().ToString();
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Nombre}, {this.UniqueId}";
         }
 
     }
