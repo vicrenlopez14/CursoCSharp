@@ -19,9 +19,94 @@ namespace CoreEscuela
 
         }
 
-        #region Métodos de generación
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
+        out int conteoEvaluaciones,
+        out int conteoCursos,
+        out int conteoAsignaturas,
+        bool traeEvaluaciones = true,
+        bool traeAlumnos = true,
+        bool traeAsignaturas = true,
+        bool traeCursos = true
+        )
+        {
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            return GetObjetosEscuela(
+                    out conteoEvaluaciones,
+                    out conteoCursos,
+                    out conteoAsignaturas,
+                    out int dummy,
+                    traeEvaluaciones: traeEvaluaciones,
+                    traeCursos: traeCursos,
+                    traeAsignaturas: traeAsignaturas,
+                    traeAlumnos: traeAlumnos
+                );
+        }
+
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
+        out int conteoEvaluaciones,
+        out int conteoCursos,
+        bool traeEvaluaciones = true,
+        bool traeAlumnos = true,
+        bool traeAsignaturas = true,
+        bool traeCursos = true
+        )
+        {
+
+            return GetObjetosEscuela(
+                    out conteoEvaluaciones,
+                    out conteoCursos,
+                    out int dummy,
+                    out dummy,
+                    traeEvaluaciones: traeEvaluaciones,
+                    traeCursos: traeCursos,
+                    traeAsignaturas: traeAsignaturas,
+                    traeAlumnos: traeAlumnos
+                );
+        }
+
+        #region Métodos de generación
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
+        out int conteoEvaluaciones,
+        bool traeEvaluaciones = true,
+        bool traeAlumnos = true,
+        bool traeAsignaturas = true,
+        bool traeCursos = true
+        )
+        {
+            conteoEvaluaciones = 0;
+
+            return GetObjetosEscuela(
+                    out conteoEvaluaciones,
+                    out int dummy,
+                    out dummy,
+                    out dummy,
+                    traeEvaluaciones: traeEvaluaciones,
+                    traeCursos: traeCursos,
+                    traeAsignaturas: traeAsignaturas,
+                    traeAlumnos: traeAlumnos
+                );
+        }
+
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
+    bool traeEvaluaciones = true,
+    bool traeAlumnos = true,
+    bool traeAsignaturas = true,
+    bool traeCursos = true
+    )
+        {
+            return GetObjetosEscuela(
+                    out int dummy,
+                    out dummy,
+                    out dummy,
+                    out dummy,
+                    traeEvaluaciones = traeEvaluaciones,
+                    traeCursos = traeCursos,
+                    traeAsignaturas = traeAsignaturas,
+                    traeAlumnos = traeAlumnos
+                );
+        }
+
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
             out int conteoEvaluaciones,
             out int conteoCursos,
             out int conteoAsignaturas,
@@ -69,7 +154,7 @@ namespace CoreEscuela
 
             }
 
-            return listaObj;
+            return listaObj.AsReadOnly();
         }
 
 
