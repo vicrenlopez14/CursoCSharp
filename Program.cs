@@ -11,10 +11,11 @@ namespace CoreEscuela
             var engine = new EscuelaEngine();
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
-            ImpimirCursosEscuela(engine.Escuela);
             var listaObjetos = engine.GetObjetosEscuela();
 
             var dicTemp = engine.GetDiccionarioObjetos();
+
+            engine.ImprimirDiccionario(dicTemp, true);
         }
 
         private static void ImpimirCursosEscuela(Escuela escuela)
