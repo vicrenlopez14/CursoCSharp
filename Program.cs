@@ -1,4 +1,5 @@
-﻿using CoreEscuela.Entidades;
+﻿using CoreEscuela.App;
+using CoreEscuela.Entidades;
 using CoreEscuela.Util;
 using static System.Console;
 
@@ -8,14 +9,24 @@ namespace CoreEscuela
     {
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+
             var engine = new EscuelaEngine();
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
-            var listaObjetos = engine.GetObjetosEscuela();
 
-            var dicTemp = engine.GetDiccionarioObjetos();
+            var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
+            var evalList = reporteador.GetListaEvaluaciones();
+            var listaAsig = reporteador.GetListaAsignaturas();
+            var listaEvalXAsig = reporteador.GetDicEvaluacionesPorAsignatura();
+            var listaPromXAsig = reporteador.GetPromedioAlumnosPorAsignatura();
+            var listaTopAlumXAsig = reporteador.GetTopAlumnosPorAsignatura();
+        }
 
-            engine.ImprimirDiccionario(dicTemp, true);
+        private static void AccionDelEvento(object? sender, EventArgs e)
+        {
+            Printer.WriteTitle("SALIENDO");
+            Printer.WriteTitle("SALIÓ");
         }
 
         private static void ImpimirCursosEscuela(Escuela escuela)
