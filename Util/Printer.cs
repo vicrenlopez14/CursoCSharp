@@ -9,6 +9,12 @@ namespace CoreEscuela.Util
             WriteLine("".PadLeft(tam, '='));
         }
 
+        public static void PresioneEnter()
+        {
+            WriteLine("Presione enter para continuar");
+        }
+
+
         public static void WriteTitle(string titulo)
         {
             var tamaño =titulo.Length + 4;
